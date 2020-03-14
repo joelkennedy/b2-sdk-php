@@ -237,6 +237,8 @@ class Client
         // if FileName is set, we only attempt to retrieve information about that single file.
         $fileName = !empty($options['FileName']) ? $options['FileName'] : null;
 
+        $prefix = !empty($options['Prefix']) ? $options['Prefix'] : null;
+
         $nextFileName = null;
         $maxFileCount = 1000;
         $files = [];
@@ -258,6 +260,7 @@ class Client
                 ],
                 'json' => [
                     'bucketId' => $options['BucketId'],
+                    'prefix' => $prefix,
                     'startFileName' => $nextFileName,
                     'maxFileCount' => $maxFileCount,
                 ]
